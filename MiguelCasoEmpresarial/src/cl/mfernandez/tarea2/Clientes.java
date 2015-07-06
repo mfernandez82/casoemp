@@ -31,7 +31,7 @@ public class Clientes extends Activity implements OnClickListener {
 	SimpleCursorAdapter adapter;
 	private Button botonAgregarPersona;
 
-	// Constantes privadas.
+	// Constantes privadas sss.
 	private int CODIGO_RESULT_EDITAR_PERSONA = 0;
 
 	@Override
