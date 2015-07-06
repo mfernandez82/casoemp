@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/LblPosLatitud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nombre de usuario" >
+
+        <requestFocus android:layout_width="wrap_content" />
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/LblPosLongitud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        
+        />
+    
+     <EditText
+        android:id="@+id/LblPosPrecision"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+       
+        />
+     
+      <EditText
+        android:id="@+id/LblEstado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+       
+        />
+
+    <Button
+        android:id="@+id/BtnActualizar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Actualizar" />
+    
+      <Button
+        android:id="@+id/BtnDesactivar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Desactivar" />
+    
+    
+     
+
+</LinearLayout>

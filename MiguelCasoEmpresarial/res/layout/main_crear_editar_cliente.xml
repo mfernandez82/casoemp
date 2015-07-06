@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/widget0"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="#CEE3F6">
+     <!-- Inicia el ScrollView -->
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <!-- Se colocal el LinearLayout que contendra el formulario -->
+        <LinearLayout 
+            android:orientation="vertical"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent">
+			<EditText
+			    android:id="@+id/editTextNombre"
+			    android:layout_width="245dp"
+			    android:layout_height="wrap_content"
+			    android:layout_x="28dp"
+			    android:layout_y="149dp"
+			    android:ems="10"
+			    android:hint="Nombres"
+			    android:textSize="18sp" />
+			<EditText
+			    android:id="@+id/editTextDireccion"
+			    android:layout_width="243dp"
+			    android:layout_height="wrap_content"
+			    android:layout_x="29dp"
+			    android:layout_y="282dp"
+			    android:ems="10"
+			    android:hint="Dirección"
+			    android:textSize="18sp" />
+			<EditText
+			    android:id="@+id/editTextFono"
+			    android:layout_width="244dp"
+			    android:layout_height="wrap_content"
+			    android:layout_x="36dp"
+			    android:layout_y="349dp"
+			    android:ems="10"
+			    android:hint="Fono"
+			    android:textSize="18sp" />
+			<LinearLayout 
+			    android:orientation="horizontal"
+           	 	android:layout_width="fill_parent" 
+            	android:layout_height="fill_parent">
+			</LinearLayout>
+			<LinearLayout 
+			    android:orientation="horizontal"
+           	 	android:layout_width="fill_parent" 
+            	android:layout_height="fill_parent">
+				
+				<Button
+				    android:id="@+id/botonGuardar"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_x="91dp"
+				    android:layout_y="405dp"
+				    android:text="@string/botonGuardar" />
+				<Button
+				    android:id="@+id/botonLimpiar"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_x="166dp"
+				    android:layout_y="408dp"
+				    android:text="@string/botonLimpiar" />
+
+				<Button
+				    android:id="@+id/botonVolver"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:text="Volver" />
+
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+</AbsoluteLayout>
