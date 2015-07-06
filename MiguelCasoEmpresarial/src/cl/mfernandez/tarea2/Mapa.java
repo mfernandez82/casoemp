@@ -34,11 +34,6 @@ public class Mapa extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mapa);
 		
-		
-	
-		
-		
-
 		btnActualizar = (Button)findViewById(R.id.BtnActualizar);
         btnDesactivar = (Button)findViewById(R.id.BtnDesactivar);
         lblLatitud = (TextView)findViewById(R.id.LblPosLatitud);
