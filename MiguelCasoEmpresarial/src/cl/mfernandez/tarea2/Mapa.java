@@ -1,10 +1,13 @@
 package cl.mfernandez.tarea2;
 
+import java.util.Timer;
+
 import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.wifi.p2p.WifiP2pManager.ActionListener;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -30,6 +33,11 @@ public class Mapa extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mapa);
+		
+		
+	
+		
+		
 
 		btnActualizar = (Button)findViewById(R.id.BtnActualizar);
         btnDesactivar = (Button)findViewById(R.id.BtnDesactivar);
