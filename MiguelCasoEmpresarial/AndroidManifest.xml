@@ -8,9 +8,12 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="22" />
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
     <uses-permission android:name="sandroid.permission.INTERNET" />
- 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    
 
     <!-- Google Maps utiliza OpenGL. Especificamos que usamos el API v2 -->
     <uses-feature
@@ -28,7 +31,6 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyB_5zezAmO4W3FtsLJOcVPjzs9snVBRi3Q" />
-        <meta-data android:name="com.google.android.gms.version" />
 
         <activity
             android:name=".LoginMain"

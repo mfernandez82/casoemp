@@ -1,14 +1,19 @@
 package cl.mfernandez.tarea2;
 
-import java.util.Timer;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
+
+
 
 import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.net.wifi.p2p.WifiP2pManager.ActionListener;
 import android.os.Bundle;
+import android.text.format.Formatter;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -23,7 +28,13 @@ public class Mapa extends Activity {
 	private TextView lblLatitud; 
 	private TextView lblLongitud;
 	private TextView lblPrecision;
+	private TextView lblIpLocal;
 	private TextView lblEstado;
+	public String TAG="IP";
+	public String ip;
+	
+	
+	
 	
 	private LocationManager locManager;
 	private LocationListener locListener;
@@ -32,15 +43,17 @@ public class Mapa extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_mapa);
+		setContentView(R.layout.main_mapa);
 		
 		btnActualizar = (Button)findViewById(R.id.BtnActualizar);
         btnDesactivar = (Button)findViewById(R.id.BtnDesactivar);
         lblLatitud = (TextView)findViewById(R.id.LblPosLatitud);
         lblLongitud = (TextView)findViewById(R.id.LblPosLongitud);
         lblPrecision = (TextView)findViewById(R.id.LblPosPrecision);
+        lblIpLocal = (TextView)findViewById(R.id.LblIpLocal);
         lblEstado = (TextView)findViewById(R.id.LblEstado);
         
+       
         btnActualizar.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				comenzarLocalizacion();
@@ -85,8 +98,10 @@ public class Mapa extends Activity {
     	};
     	
     	locManager.requestLocationUpdates(
-    			LocationManager.GPS_PROVIDER, 30000, 0, locListener);
+    			LocationManager.GPS_PROVIDER, 180*1000, 0, locListener);
     }
+    
+    
      
     private void mostrarPosicion(Location loc) {
     	if(loc != null)
@@ -94,6 +109,7 @@ public class Mapa extends Activity {
     		lblLatitud.setText("Latitud: " + String.valueOf(loc.getLatitude()));
     		lblLongitud.setText("Longitud: " + String.valueOf(loc.getLongitude()));
     		lblPrecision.setText("Precision: " + String.valueOf(loc.getAccuracy()));
+    		lblIpLocal.setText("Ip Local: " + getLocalIpAddress());
     		Log.i("", String.valueOf(loc.getLatitude() + " - " + String.valueOf(loc.getLongitude())));
     	}
     	else
@@ -103,6 +119,45 @@ public class Mapa extends Activity {
     		lblPrecision.setText("Precision: (sin_datos)");
     	}
     }
+    
+        
+    public String getLocalIpAddress() {
+	    try {
+	      for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+	         NetworkInterface intf = en.nextElement();
+	         for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+	           InetAddress inetAddress = enumIpAddr.nextElement();
+	           if (!inetAddress.isLoopbackAddress()) {
+	             String ip = Formatter.formatIpAddress(inetAddress.hashCode());
+	             return ip;
+	           }
+	         }
+	      }
+	    } catch (SocketException ex) {
+	    	 Log.e(TAG, ex.toString());
+	    }
+	    return null;
+	  }
+    
+    public String traerLocalIpAddress() {
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface
+                    .getNetworkInterfaces(); en.hasMoreElements();) {
+                NetworkInterface intf = en.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = intf
+                        .getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    if (!inetAddress.isLoopbackAddress()) {
+                        return inetAddress.getHostAddress().toString();
+                    }
+                }
+            }
+        } catch (SocketException ex) {
+            Log.e(TAG, ex.toString());
+        }
+        return "";
+    }
+    
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

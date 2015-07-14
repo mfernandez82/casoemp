@@ -31,6 +31,14 @@
        
         />
      
+     <EditText
+        android:id="@+id/LblIpLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+       
+        />
+     
       <EditText
         android:id="@+id/LblEstado"
         android:layout_width="match_parent"
@@ -38,6 +46,8 @@
         android:ems="10"
        
         />
+      
+     
 
     <Button
         android:id="@+id/BtnActualizar"
