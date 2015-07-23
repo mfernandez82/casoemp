@@ -24,11 +24,11 @@ public class ListarProductos extends Activity {
 		setContentView(R.layout.main_listar_productos);
 		
 		manager = new Productos(this);
-	manager.insertar_producto("COCA COLA 1.5LT", "EMBONOR", 980, 5, 1);
+/*	manager.insertar_producto("COCA COLA 1.5LT", "EMBONOR", 980, 5, 1);
 	manager.insertar_producto("VINO DON OMAR TETRA 2 LT", "DON OMAR", 2000, 3, 1);
 	manager.insertar_producto("COCINA DIVA 850", "DIVA", 229000, 2, 1);	
 	manager.insertar_producto("CELULAR SAMSUMG GALAXY S7", "SAMSUMG", 760310, 8, 1);
-	
+	*/
 	
 		lista = (ListView) findViewById(R.id.lv_productos);
 		

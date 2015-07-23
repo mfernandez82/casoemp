@@ -72,6 +72,13 @@ public void actualizardireccion(String nombre, String marca, int precio, int sto
 	return	db.query(TABLA, columnas, null, null, null, null, null);			
 	}	
 	
+	public Cursor cargarCursorProductoSegunId(String id){		
+		String[] columnas = new String[] {PROD_ID+" AS _id ", PROD_NOMBRE  , PROD_MARCA, PROD_PRECIO, PROD_STOCK, PROD_ESTADO};
+		String[] args = new String[] {id};
+		
+	return	db.query(TABLA, columnas, "_id = ?", args, null, null, null);			
+	}	
+	
 	public Cursor cargarCursorProductosDialogo(){		
 		String[] columnas = new String[] {PROD_ID+" AS _id ", PROD_NOMBRE  , PROD_MARCA, PROD_PRECIO, PROD_STOCK};				
 	return	db.query(TABLA, columnas, null, null, null, null, null);			

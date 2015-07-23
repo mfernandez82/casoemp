@@ -4,7 +4,6 @@ import Tablas.Login;
 import Tablas.Productos;
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,12 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class DetalleVenta extends Activity implements OnClickListener {
 
@@ -25,8 +26,9 @@ public class DetalleVenta extends Activity implements OnClickListener {
 	private Cursor cursor;
 	private ListView lista, listaDeVenta;
 	SimpleCursorAdapter adapter;
-
 	Login loginDataBaseAdapter;
+
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,9 @@ public class DetalleVenta extends Activity implements OnClickListener {
 		Toast.makeText(this, "nombre cliente" + nom_cliente, Toast.LENGTH_LONG);
 
 		manager = new Productos(DetalleVenta.this);
+		
+		
+
 
 	}
 
@@ -49,17 +54,16 @@ public class DetalleVenta extends Activity implements OnClickListener {
 		final Dialog dialog = new Dialog(DetalleVenta.this, R.style.NewDialog);
 		dialog.setContentView(R.layout.dialogo_agregar_producto);
 		dialog.setTitle("Listado de productos");
-		//dialog.getWindow().setBackgroundDrawable(null);
-		
-		
-		
+		// dialog.getWindow().setBackgroundDrawable(null);
+
 		dialog.setCancelable(true);
 		dialog.show();
 
-		// la idea es que al presionar sobre el listado de los productos, sale del listado
+		// la idea es que al presionar sobre el listado de los productos, sale
+		// del listado
 		// y se debe agregar el listview del detalle de la venta
 		// para posteriomrnte guardarla en la base de datos.
-		
+
 		cursor = manager.cargarCursorProductosDialogo();
 		String[] from = new String[] { manager.PROD_NOMBRE, manager.PROD_MARCA,
 				manager.PROD_PRECIO, manager.PROD_STOCK };
@@ -91,7 +95,6 @@ public class DetalleVenta extends Activity implements OnClickListener {
 						.getColumnIndexOrThrow("NOMBRE"));
 				String precio = cursor.getString(cursor
 						.getColumnIndexOrThrow("PRECIO"));
-				
 
 				/*
 				 * Intent mf = new Intent (EfectuarVenta.this,
@@ -107,17 +110,16 @@ public class DetalleVenta extends Activity implements OnClickListener {
 				Toast.makeText(getApplicationContext(),
 						"codigo del PRODUCTO " + codigo_est, Toast.LENGTH_SHORT)
 						.show();
-				
+
 				Toast.makeText(getApplicationContext(),
-						"Nombre del PRODUCTO " + nombre_producto, Toast.LENGTH_SHORT)
-						.show();
-				
-				Toast.makeText(getApplicationContext(),
-						"PRECIO " + precio, Toast.LENGTH_SHORT)
-						.show();
+						"Nombre del PRODUCTO " + nombre_producto,
+						Toast.LENGTH_SHORT).show();
+
+				Toast.makeText(getApplicationContext(), "PRECIO " + precio,
+						Toast.LENGTH_SHORT).show();
 
 				dialog.dismiss();
-				llenar_lista();
+				llenar_lista(codigo_est);
 			}
 
 		});
@@ -128,13 +130,27 @@ public class DetalleVenta extends Activity implements OnClickListener {
 
 		// dialog.show();
 	}
-	
-	public void llenar_lista(){
+
+	public void llenar_lista(String codigo_est) {
+
+		listaDeVenta = (ListView) findViewById(R.id.lv_detalle_venta);
+
 		
-				listaDeVenta = (ListView) findViewById(R.id.lv_detalle_venta);
 		
-				
 		
+		cursor = manager.cargarCursorProductoSegunId(codigo_est);
+		String[] from = new String[] { manager.PROD_NOMBRE,
+				manager.PROD_MARCA, manager.PROD_PRECIO, manager.PROD_STOCK, manager.PROD_ESTADO };
+		int[] to = new int[] { R.id.txtNombreProducto, R.id.txtMarcaProducto, R.id.txtPrecioProducto, R.id.txtStockProducto, R.id.txtProductoEstado };
+		
+
+		adapter = new SimpleCursorAdapter(this, R.layout.filas_productos_det_venta, cursor, from,
+				to);
+		
+		listaDeVenta.setAdapter(adapter);
+		//adapter.notifyDataSetChanged();
+		
+
 	}
 
 	public void dialogo_agregar(View v) {

@@ -6,9 +6,9 @@ package cl.mfernandez.tarea2;
 import java.util.Locale;
 
 import Tablas.Productos;
-import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,8 +19,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TabHost;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class MiMenu extends  TabActivity{
 
@@ -46,6 +44,15 @@ public class MiMenu extends  TabActivity{
         
         Locale locale = Locale.getDefault();        
         String tipo = locale.getLanguage() ;
+        Locale.setDefault(locale);
+        
+        /*	Todo lo que no sea definible en los string, ya sea en ingles o en español
+         * se define via linea de comando las fechas, decimales y monedas.
+         *
+         *          */
+        Configuration config = new Configuration();
+        config.locale = locale;
+        this.getApplicationContext().getResources().updateConfiguration(config, null);     
         
         if (tipo.equals("es"))
         {        
