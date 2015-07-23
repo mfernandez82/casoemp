@@ -40,8 +40,11 @@ public class MiMenu extends  TabActivity{
         
         
       //Se hace exactamente lo mismo con las demas pestanas
-        Locale locale = Locale.getDefault();
         
+        //capturo el idioma del dispositivo para cambiar los titulos de los menus desde
+        // esta clase y no desde los String.xml, segun el idioma.
+        
+        Locale locale = Locale.getDefault();        
         String tipo = locale.getLanguage() ;
         
         if (tipo.equals("es"))

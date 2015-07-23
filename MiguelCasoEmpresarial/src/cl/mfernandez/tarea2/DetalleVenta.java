@@ -46,9 +46,13 @@ public class DetalleVenta extends Activity implements OnClickListener {
 
 	// Methos to handleClick Event of Sign In Button
 	public void ingresar(View V) {
-		final Dialog dialog = new Dialog(DetalleVenta.this);
+		final Dialog dialog = new Dialog(DetalleVenta.this, R.style.NewDialog);
 		dialog.setContentView(R.layout.dialogo_agregar_producto);
 		dialog.setTitle("Listado de productos");
+		//dialog.getWindow().setBackgroundDrawable(null);
+		
+		
+		
 		dialog.setCancelable(true);
 		dialog.show();
 
