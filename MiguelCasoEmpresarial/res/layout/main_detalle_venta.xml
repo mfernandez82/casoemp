@@ -17,7 +17,7 @@
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nombre del cliente a facturar" />
+                android:text="@string/nombre_cliente_a_facturar" />
 
         </TableRow>
     </TableLayout>
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
           android:background="#ff0093ff"
          android:onClick="ingresar"
-        android:text="Agregar Producto" />
+        android:text="@+string/agregar_producto" />
 
     <TableRow
         android:id="@+id/tableRow2"
@@ -54,7 +54,7 @@
         android:id="@+id/RegistroVenta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar Venta" />
+        android:text="@string/registrar_venta" />
 
     
 

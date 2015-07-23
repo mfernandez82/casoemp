@@ -25,6 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/lv_usuarios"
         android:layout_alignParentTop="true"
-        android:text="Crear clientes" />
+        android:text="@+string/crear_clientes" />
 
 </RelativeLayout>

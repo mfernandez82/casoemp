@@ -15,7 +15,7 @@
                 android:id="@+id/TextView01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre :" />
+                android:text="@+string/nombre" />
 
             <TextView
                 android:id="@+id/txtnombre"
@@ -34,7 +34,7 @@
                 android:id="@+id/TextView02"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dirección :" />
+                android:text="@+string/direccion" />
 
             <TextView
                 android:id="@+id/txtdireccion"
@@ -54,7 +54,7 @@
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fono :" />
+                android:text="@+string/fono" />
 
             <TextView
                 android:id="@+id/txtfono"

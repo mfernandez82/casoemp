@@ -3,6 +3,8 @@ package cl.mfernandez.tarea2;
 
 
 
+import java.util.Locale;
+
 import Tablas.Productos;
 import android.app.Activity;
 import android.app.TabActivity;
@@ -36,35 +38,74 @@ public class MiMenu extends  TabActivity{
         Intent intent; // Intent que se utilizara para abrir cada pestana
         Resources res = getResources(); //Obtenemos los recursos
         
-        //Se crea el intent para abrir la actividad que en realidad es una clase
-        intent = new Intent().setClass(this, Clientes.class);
-        //Se configura la pestana con sus propiedades
-        spec = tabHost.newTabSpec("Pestaña1").setContent(intent).setIndicator("    Clientes     ");        
-        //Se carga la pestana en el contenedor TabHost 
-        tabHost.addTab(spec);
-        tabHost.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#0099CC")); 
         
-        //Se hace exactamente lo mismo con las demas pestanas
+      //Se hace exactamente lo mismo con las demas pestanas
+        Locale locale = Locale.getDefault();
         
-        intent = new Intent().setClass(this, ListarProductos.class);
-        spec = tabHost.newTabSpec("Pestaña2").setContent(intent).setIndicator("  Listar Productos  ");  
-        tabHost.addTab(spec);
-        tabHost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#9933CC"));
+        String tipo = locale.getLanguage() ;
         
-        intent = new Intent().setClass(this, EfectuarVenta.class);
-        spec = tabHost.newTabSpec("Pestaña3").setContent(intent).setIndicator("  Ventas  ");  
-        tabHost.addTab(spec);
-        tabHost.getTabWidget().getChildAt(2).setBackgroundColor(Color.parseColor("#669900"));
+        if (tipo.equals("es"))
+        {        
         
-        intent = new Intent().setClass(this, Resumen.class);
-        spec = tabHost.newTabSpec("Pestaña4").setContent(intent).setIndicator("  Resumen Vta.  ");  
-        tabHost.addTab(spec);
-        tabHost.getTabWidget().getChildAt(3).setBackgroundColor(Color.parseColor("#FF8800"));
-        
-        intent = new Intent().setClass(this, Mapa.class);
-        spec = tabHost.newTabSpec("Pestaña5").setContent(intent).setIndicator("  Mapa  ");  
-        tabHost.addTab(spec);
-        tabHost.getTabWidget().getChildAt(3).setBackgroundColor(Color.parseColor("#FF7700"));
+	        	//Se crea el intent para abrir la actividad que en realidad es una clase
+	        intent = new Intent().setClass(this, Clientes.class);
+	        //Se configura la pestana con sus propiedades
+	        spec = tabHost.newTabSpec("Pestaña1").setContent(intent).setIndicator("    Clientes     ");        
+	        //Se carga la pestana en el contenedor TabHost 
+	        tabHost.addTab(spec);
+	        tabHost.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#0099CC")); 
+                		
+	        intent = new Intent().setClass(this, ListarProductos.class);
+	        spec = tabHost.newTabSpec("Pestaña2").setContent(intent).setIndicator("  Listar Productos  ");  
+	        tabHost.addTab(spec);
+	        tabHost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#9933CC"));
+	        
+	        intent = new Intent().setClass(this, EfectuarVenta.class);
+	        spec = tabHost.newTabSpec("Pestaña3").setContent(intent).setIndicator("  Ventas  ");  
+	        tabHost.addTab(spec);
+	        tabHost.getTabWidget().getChildAt(2).setBackgroundColor(Color.parseColor("#669900"));
+	        
+	        intent = new Intent().setClass(this, Resumen.class);
+	        spec = tabHost.newTabSpec("Pestaña4").setContent(intent).setIndicator("  Resumen Vta.  ");  
+	        tabHost.addTab(spec);
+	        tabHost.getTabWidget().getChildAt(3).setBackgroundColor(Color.parseColor("#FF8800"));
+	        
+	        intent = new Intent().setClass(this, Mapa.class);
+	        spec = tabHost.newTabSpec("Pestaña5").setContent(intent).setIndicator("  Mapa  ");  
+	        tabHost.addTab(spec);
+	        tabHost.getTabWidget().getChildAt(3).setBackgroundColor(Color.parseColor("#FF7700"));
+        }
+        else
+        {
+        	//Se crea el intent para abrir la actividad que en realidad es una clase
+	        intent = new Intent().setClass(this, Clientes.class);
+	        //Se configura la pestana con sus propiedades
+	        spec = tabHost.newTabSpec("Pestaña1").setContent(intent).setIndicator("    Customers     ");        
+	        //Se carga la pestana en el contenedor TabHost 
+	        tabHost.addTab(spec);
+	        tabHost.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#0099CC"));
+        	
+        	 intent = new Intent().setClass(this, ListarProductos.class);
+ 	        spec = tabHost.newTabSpec("Pestaña2").setContent(intent).setIndicator("  List Products  ");  
+ 	        tabHost.addTab(spec);
+ 	        tabHost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#9933CC"));
+ 	        
+ 	        intent = new Intent().setClass(this, EfectuarVenta.class);
+ 	        spec = tabHost.newTabSpec("Pestaña3").setContent(intent).setIndicator("  Sales  ");  
+ 	        tabHost.addTab(spec);
+ 	        tabHost.getTabWidget().getChildAt(2).setBackgroundColor(Color.parseColor("#669900"));
+ 	        
+ 	        intent = new Intent().setClass(this, Resumen.class);
+ 	        spec = tabHost.newTabSpec("Pestaña4").setContent(intent).setIndicator("  Summary Sale  ");  
+ 	        tabHost.addTab(spec);
+ 	        tabHost.getTabWidget().getChildAt(3).setBackgroundColor(Color.parseColor("#FF8800"));
+ 	        
+ 	        intent = new Intent().setClass(this, Mapa.class);
+ 	        spec = tabHost.newTabSpec("Pestaña5").setContent(intent).setIndicator("  Map  ");  
+ 	        tabHost.addTab(spec);
+ 	        tabHost.getTabWidget().getChildAt(3).setBackgroundColor(Color.parseColor("#FF7700"));
+        	
+        }
         /*
 		
 		 String nombre_vendedor  = getIntent().getStringExtra("usuario_vendedor");

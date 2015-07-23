@@ -25,5 +25,26 @@
     <string name="title_activity_resumen">Resumen de Ventas</string>
     <string name="title_activity_detalle_resumen">Resumen de Venta</string>
     <string name="title_activity_mapa">Mapa</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="precio">Precio :</string>
+    <string name="stock">Stock :</string>
+    <string name="nom_producto">Nombre Producto :</string>
+    <string name="marca_producto">Marca Producto :</string>
+    <string name="estado">Estado : </string>
+    <string name="nombre">Nombre : </string>
+    <string name="direccion">Dirección : </string>
+    <string name="fono">Fono : </string>
+    <string name="nombre_usuario">Nombre de Usuario </string>
+    <string name="password">Password </string>
+    <string name="crear_clientes">Crear Clientes </string>
+    <string name="nombres">Nombres</string>
+    <string name="volver">Volver</string>
+    <string name="detalle_venta">detalle de la venta efectuada</string>
+    <string name="nombre_cliente_a_facturar">Nombre del cliente a facturar</string>
+    <string name="agregar_producto">Agregar producto</string>
+    <string name="registrar_venta">Registrar Venta</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="desactivar">Desactivar</string>
+    <string name="elegir_cliente">Elegir cliente para ver su detalle</string>
 
 </resources>

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Nombre de usuario" >
+        android:hint="" >
 
         <requestFocus android:layout_width="wrap_content" />
 
@@ -53,13 +53,13 @@
         android:id="@+id/BtnActualizar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Actualizar" />
+        android:text="@string/actualizar" />
     
       <Button
         android:id="@+id/BtnDesactivar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Desactivar" />
+        android:text="@string/desactivar" />
     
     
      

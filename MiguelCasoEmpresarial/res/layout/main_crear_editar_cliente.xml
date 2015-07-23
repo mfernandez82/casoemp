@@ -21,7 +21,7 @@
 			    android:layout_x="28dp"
 			    android:layout_y="149dp"
 			    android:ems="10"
-			    android:hint="Nombres"
+			    android:hint="@string/nombres"
 			    android:textSize="18sp" />
 			<EditText
 			    android:id="@+id/editTextDireccion"
@@ -30,7 +30,7 @@
 			    android:layout_x="29dp"
 			    android:layout_y="282dp"
 			    android:ems="10"
-			    android:hint="Dirección"
+			    android:hint="@+string/direccion"
 			    android:textSize="18sp" />
 			<EditText
 			    android:id="@+id/editTextFono"
@@ -39,7 +39,7 @@
 			    android:layout_x="36dp"
 			    android:layout_y="349dp"
 			    android:ems="10"
-			    android:hint="Fono"
+			    android:hint="@+string/fono"
 			    android:textSize="18sp" />
 			<LinearLayout 
 			    android:orientation="horizontal"
@@ -70,7 +70,7 @@
 				    android:id="@+id/botonVolver"
 				    android:layout_width="wrap_content"
 				    android:layout_height="wrap_content"
-				    android:text="Volver" />
+				    android:text="@string/volver" />
 
 			</LinearLayout>
 		</LinearLayout>

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Nombre de usuario" >
+        android:hint="@+string/nombre_usuario" >
 
         <requestFocus android:layout_width="wrap_content" />
 
@@ -20,14 +20,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@+string/password"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btn_ingresar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Ingresar" />
+        android:text="@+string/ingresar" />
     
     
      
