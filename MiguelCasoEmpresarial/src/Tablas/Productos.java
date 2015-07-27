@@ -46,6 +46,7 @@ public class Productos {
 		return valores;
 		
 	}
+		
 	
 	public void insertar_producto (String nombre, String marca, int precio, int stock, int estado)
 	{

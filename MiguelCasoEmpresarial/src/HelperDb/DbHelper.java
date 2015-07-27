@@ -32,6 +32,8 @@ public class DbHelper extends SQLiteOpenHelper {
 		db.execSQL(Pedidos.CREAR_TABLA_PEDIDOS);
 		db.execSQL(Detalle_pedidos.CREAR_TABLA_DET_PEDIDOS);
 		
+
+		
 	//	insertarAlgunosClientes();
 				
 		// TODO Auto-generated method stub

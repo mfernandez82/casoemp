@@ -1,5 +1,7 @@
 package cl.mfernandez.tarea2;
 
+import java.util.ArrayList;
+
 import Tablas.Login;
 import Tablas.Productos;
 import android.app.Activity;
@@ -26,9 +28,8 @@ public class DetalleVenta extends Activity implements OnClickListener {
 	private Cursor cursor;
 	private ListView lista, listaDeVenta;
 	SimpleCursorAdapter adapter;
-	Login loginDataBaseAdapter;
 
-	
+	Login loginDataBaseAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +44,6 @@ public class DetalleVenta extends Activity implements OnClickListener {
 		Toast.makeText(this, "nombre cliente" + nom_cliente, Toast.LENGTH_LONG);
 
 		manager = new Productos(DetalleVenta.this);
-		
-		
-
 
 	}
 
@@ -135,21 +133,23 @@ public class DetalleVenta extends Activity implements OnClickListener {
 
 		listaDeVenta = (ListView) findViewById(R.id.lv_detalle_venta);
 
-		
-		
-		
 		cursor = manager.cargarCursorProductoSegunId(codigo_est);
-		String[] from = new String[] { manager.PROD_NOMBRE,
-				manager.PROD_MARCA, manager.PROD_PRECIO, manager.PROD_STOCK, manager.PROD_ESTADO };
-		int[] to = new int[] { R.id.txtNombreProducto, R.id.txtMarcaProducto, R.id.txtPrecioProducto, R.id.txtStockProducto, R.id.txtProductoEstado };
-		
+		String[] from = new String[] { manager.PROD_NOMBRE, manager.PROD_MARCA,
+				manager.PROD_PRECIO, manager.PROD_STOCK, manager.PROD_ESTADO };
+		int[] to = new int[] { R.id.txtNombreProducto, R.id.txtMarcaProducto,
+				R.id.txtPrecioProducto, R.id.txtStockProducto,
+				R.id.txtProductoEstado };
 
-		adapter = new SimpleCursorAdapter(this, R.layout.filas_productos_det_venta, cursor, from,
-				to);
+		// adapter = new SimpleCursorAdapter(this,
+		// R.layout.filas_productos_det_venta, cursor, from,
+		// to);
+
 		
+		adapter = new SimpleCursorAdapter(this,
+				R.layout.filas_productos_det_venta, cursor, from, to);
+
 		listaDeVenta.setAdapter(adapter);
-		//adapter.notifyDataSetChanged();
-		
+		// adapter.notifyDataSetChanged();
 
 	}
 
